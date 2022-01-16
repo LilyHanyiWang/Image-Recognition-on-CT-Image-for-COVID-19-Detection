@@ -3,7 +3,8 @@
 Apply image recognition algorithms AlexNet, VGG, and SENet to the COVID CT dataset. A comparison of performance of different networks.
 
 
-References
+## References
+
 [1]	Y. Choi, yunjey/pytorch-tutorial. 2022. Accessed: Jan. 12, 2022. [Online]. Available: https://github.com/yunjey/pytorch-tutorial
 
 [2]	H. Gunraj, L. Wang, and A. Wong, “COVIDNet-CT: A tailored deep convolutional neural network design for detection of COVID-19 cases from chest CT images,” Frontiers in Medicine, vol. 7, 2020. 
