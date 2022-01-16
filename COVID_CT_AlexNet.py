@@ -13,22 +13,18 @@ resnet18 = models.resnet18(num_classes=2)#.cuda()
 
 net = alexnet
 
-# train_dataset_path = './COVIDx_CT_split/train/'
-# val_dataset_path = './COVIDx_CT_split/val/'
-# test_dataset_path = './COVIDx_CT_split/test/'
-
 train_dataset_path = './COVID_CT/train/'
 val_dataset_path = './COVID_CT/val/'
 test_dataset_path = './COVID_CT/test/'
 
-# 数据预处理，resize 244X244, normalize
+# data preprocessing, resize and normalization 
 transform = transforms.Compose([
     transforms.Resize((224,224)),
     transforms.ToTensor(),
     transforms.Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])
 ])
 
-# 便捷化读取图片
+# easier way to read in images
 train_dataset = datasets.ImageFolder(root = train_dataset_path,transform=transform)
 train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size = 64,  shuffle=True)
 val_dataset = datasets.ImageFolder(root = val_dataset_path,transform=transform)
@@ -45,7 +41,7 @@ num_epoch = 60
 if not os.path.exists('./AlexNet_small/'):
     os.makedirs('./AlexNet_small/')
 for epoch in range(num_epoch):
-    record_acc = [] # 记录最高准确率
+    record_acc = [] # record the highest accuracy
     epoch_loss = []
     '''train step'''
     for data in train_dataloader:
