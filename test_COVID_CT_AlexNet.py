@@ -12,9 +12,7 @@ resnet18 = models.resnet18(num_classes=2)#.cuda()
 
 net = alexnet
 
-# train_dataset_path = './COVIDx_CT_split/train/'
-# val_dataset_path = './COVIDx_CT_split/val/'
-# test_dataset_path = './COVIDx_CT_split/test/'
+path = '/Users/hanyiwang/Desktop/ImageRecognitiononCTImageforCOVID-19Detection/code/AlexNet_small/'
 
 train_dataset_path = './COVID_CT/train/'
 val_dataset_path = './COVID_CT/val/'
@@ -33,7 +31,7 @@ test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size = 64,  sh
 num_epoch = 60 
 
 for epoch in range(num_epoch):
-    net.load_state_dict(torch.load('/home/zpy/Desktop/COVID-CT_project/AlexNet/'+str(epoch)+'.pth'))
+    net.load_state_dict(torch.load(path+str(epoch)+'.pth'))
     record_acc = []
     epoch_loss = []
     test_acc = []
